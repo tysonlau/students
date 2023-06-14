@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/process.js" defer></script>
+    <title>Display</title>
+    <div class="topnavbar">
+        <a href="../../add.html">Add</a>
+    </div>
+</head>
+<body>
+    <main class="containter-fluid">
+        <div class="row justify-content-center">
+            <!--<style th:inline="css">
+                            
+                "color: [['${student.colour}']]"
+                
+            </style> -->
+            <style>
+                li{
+                    display: inline-block;
+                    margin-right:10px;
+                }
+            </style>
+            <div class="col-md-4">
+                <center><h1>STUDENTS</h1></center>
+                <center>Click on student's name to access their page</center>
+                <!--<span th:if="${error != null}" th:text="'ERROR: ' + ${error}"></span> -->
+                <ul>
+                    <li th:each="student:${st}" style='list-style-type: none' name="" >
+                        <!-- th:inline style = "css"      th:style="'width:' +${student.weight}+ 'px'"
+                        th:style="'height:' +${student.name}+ 'px'" th:style= "'border: 1px solid' +${student.colour}"-->
+                                               <!--th:styleappend="'width:'+${student.weight}+ 'px'" -->
+                        <!--th:styleappend="'height:' +${student.height}+ 'px'" border-right: 1px solid; -->
+                        <!--<span th:style="'line-height:' +${student.height*2}+ 'px'" style='display: inline-block'>
+                            <span th:style="'border-right: 1px solid ' +${student.colour}">
+                                <span th:text="${student.name}"></span>
+                            </span>
+                        </span> -->
+                        <style>
+                            span{
+                                display: inline-block;
+                                text-align: center;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <span style='border: 1px solid black'>
+                            <span th:style="'height:' +${student.height*1.5}+ 'px'" > 
+                                <span th:style="'width:' +${student.weight/1.5}+ 'px'" style='text-align: center;' >
+                                    <form th:action="'/students/view/'+${student.uid}" method="post">
+                                    <!--<a href="../../add.html"><span th:text="${student.name}" th:style="'color: ' +${student.colour}" ></span></a> <br> -->
+                                        <input type="hidden" name="uid" th:value="${student.uid}" />
+                                        <button type="submit" id="submitButton"><span th:text="${student.name}" th:style="'color: ' +${student.colour}" ></span></button> <br>
+                                        <span th:text="${student.gpa}"></span>
+                                    
+                                    </form>
+                                </span>
+                            </span>                       
+                        </span> 
+                        <div th:switch="${student.name}" style = 'margin-bottom: 20px;'>
+                            <span th:case="'Joel Miller'">The Last of Us</span>
+                            <span th:case="'Ellie Williams'">The Last of Us</span>
+                            <span th:case="'Sal Vulcano'">Impractical Jokers</span>
+                            <span th:case="'James Murray'">Impractical Jokers</span>
+                            <span th:case="'Brian Quinn'">Impractical Jokers</span>
+                            <span th:case="'Joe Gatto'">Impractical Jokers</span>
+                            <span th:case="'Sal'">Impractical Jokers</span>
+                            <span th:case="'Murr'">Impractical Jokers</span>
+                            <span th:case="'Q'">Impractical Jokers</span>
+                            <span th:case="'Joe'">Impractical Jokers</span>
+                            <span th:case="*">General Student</span>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

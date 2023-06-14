@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Error</title>
+    <div class="topnavbar" style = 'margin-bottom: 100px;'>
+        <a href="../../add.html">Add</a>
+        <a href="../../students/view">Display</a>
+    </div>
+</head>
+<body>
+    <center th:text="'ERROR: ' + ${error}" style = 'font-weight: bold;' id = "err"></center>
+    <center style = 'margin-top: 20px;'>Sorry, we could not complete your request</center>
+    <center style = 'margin-top: 37px;' id="tips">TIPS:</center>
+    <center style = 'margin-top: 20px;'>Please ensure that inputs for height are not below 36 inches (3 feet) or above 96 inches (8 feet) </center>
+    <center style = 'margin-top: 20px;'>Also ensure that inputs for weight are not below 30 pounds or above 400 pounds</center>
+    <center style = 'margin-top: 20px;'>Do not leave any input fields blank</center>
+    <center style = 'margin-top: 20px;'>GPA inputs should be inbetween 0.0 and 4.0</center>
+    <center style = 'margin-top: 20px;'>Email should include an @ symbol as well as .com or .ca</center>
+    <center style = 'font-weight: bold;'><a href="../../add.html">Return to Add Student Page</a></center>
+</body>
+</html>
