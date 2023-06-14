@@ -122,6 +122,20 @@ public class StudentsController {
             model.addAttribute("error", error);
             return "students/errorPage";
         }
+
+        if (newEmail.toLowerCase().indexOf(".com") == -1 && newEmail.toLowerCase().indexOf(".ca") == -1 && newEmail.toLowerCase().indexOf("@") == -1) {
+            String error = "Invalid email input (no @ symbol, .com or .ca)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        } else if (newEmail.toLowerCase().indexOf(".com") == -1 && newEmail.toLowerCase().indexOf(".ca") == -1) {
+            String error = "Invalid email input (no .com or .ca)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        } else if (newEmail.toLowerCase().indexOf("@") == -1) {
+            String error = "Invalid email input (no @ symbol)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        }
         
         studentRepo.save(new Student(newName, newClr, newWeight, newHeight, newGpa, newEmail));
         response.setStatus(201);
@@ -205,6 +219,20 @@ public class StudentsController {
             return "students/errorPage";
         } else if (newGpa > 4.0) {
             String error = "Invalid GPA input (too high)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        }
+
+        if (newEmail.toLowerCase().indexOf(".com") == -1 && newEmail.toLowerCase().indexOf(".ca") == -1 && newEmail.toLowerCase().indexOf("@") == -1) {
+            String error = "Invalid email input (no @ symbol, .com or .ca)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        } else if (newEmail.toLowerCase().indexOf(".com") == -1 && newEmail.toLowerCase().indexOf(".ca") == -1) {
+            String error = "Invalid email input (no .com or .ca)";
+            model.addAttribute("error", error);
+            return "students/errorPage";
+        } else if (newEmail.toLowerCase().indexOf("@") == -1) {
+            String error = "Invalid email input (no @ symbol)";
             model.addAttribute("error", error);
             return "students/errorPage";
         }
